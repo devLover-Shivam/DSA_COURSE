@@ -63,6 +63,42 @@ public class arrays {
             System.out.print(arr[i]+" ");
         }
     }
+
+    public static void revArray(int arr[],int sp, int ep){
+
+        while(sp<ep){
+            int temp = arr[sp];
+            arr[sp] = arr[ep];
+            arr[ep] = temp;
+
+            sp++;
+            ep--;
+        }
+        
+    }
+
+    // FUNCTION TO FIND TOTAL NUMBER OF ELEMENTS FOR WHICH ONE GREATER ELEMENT EXIST.
+
+    public static int countGreater(int arr[]){
+        int max = 0;
+        
+        for (int i = 0; i < arr.length; i++) {
+            if(arr[i]>max){
+                max = arr[i];
+            }
+            
+        }
+
+        int count =0;
+        for (int i = 0; i < arr.length; i++) {
+            if(arr[i]==max){
+                count++;
+            }
+        }
+
+        return (arr.length - count);
+        
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
@@ -72,8 +108,18 @@ public class arrays {
             arr[i] = sc.nextInt();
         }
 
-        reverseSubArray(arr);
 
+        //CALLING CONSECUTIVE REVERSE FUNCTIONS FOR ROTATION.
+        /* int k = sc.nextInt();
+        revArray(arr, 0, n-1);
+        revArray(arr, 0, k-1);
+        revArray(arr, k, n-1);
+        System.out.print("Rotated Array is: ");
+        for (int i = 0; i < n; i++) {
+            System.out.print(arr[i]+" ");
+        } */
         
+        int ans = countGreater(arr);
+        System.out.println("Total numbers of elements for which one greater element exist: "+ans);
     }
 }
