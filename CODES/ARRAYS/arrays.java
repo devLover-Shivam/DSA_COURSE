@@ -8,8 +8,9 @@ public class arrays {
         }
         System.out.print("Sum of the given array is : "+sum);
     }
+
     public static void maxElement(int arr[]){
-        int max = 0;
+        int max = arr[0];
         for (int i = 0; i < arr.length; i++) {
             if(arr[i]>max){
                 max = arr[i];
@@ -18,6 +19,23 @@ public class arrays {
         System.out.println("Max element of the array is: "+max);
     };
     
+    public static void reverseArray(int arr[]){
+        int sp = 0;
+        int ep = arr.length -1;
+
+        while(sp<ep){
+            int temp = arr[sp];
+            arr[sp] = arr[ep];
+            arr[ep] = temp;
+
+            sp++;
+            ep--;
+        }
+        System.out.print("Reversed array: ");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i]+" ");
+        }
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
@@ -27,7 +45,7 @@ public class arrays {
             arr[i] = sc.nextInt();
         }
 
-        maxElement(arr);
+        reverseArray(arr);
 
         
     }
