@@ -99,6 +99,16 @@ public class arrays {
         return (arr.length - count);
         
     }
+
+    //TWO SUM PROBLEM
+    public static boolean twoSum (int arr[],int k){
+        for (int i = 0; i < arr.length - 2; i++) {
+            for(int j = 0 ; j<arr.length;j++){
+                if(arr[i]+arr[j] == k) return true;
+            }
+        }
+        return false;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
@@ -119,7 +129,13 @@ public class arrays {
             System.out.print(arr[i]+" ");
         } */
         
-        int ans = countGreater(arr);
-        System.out.println("Total numbers of elements for which one greater element exist: "+ans);
+        /* int ans = countGreater(arr);
+        System.out.println("Total numbers of elements for which one greater element exist: "+ans); */
+        System.out.print("Finding the sum:");
+        int k = sc.nextInt();
+        boolean ans = twoSum(arr, k);
+        System.out.println("Is there any pair that equals to the sum of:"+k+"+ ?" + ans);
+
+
     }
 }
